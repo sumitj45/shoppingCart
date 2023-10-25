@@ -67,8 +67,7 @@ function App() {
 	);
 
 	return (
-		<div className="App">
-      {/* search component */}
+		<div className="App">//App.jsremove-button
 			<SearchComponent searchCourse={searchCourse} 
 							productsearchUserFunction=
 								{productsearchUserFunction} />
@@ -98,3 +97,37 @@ function App() {
 }
 
 export default App;
+      {/* search component */}
+			<SearchComponent searchCourse={searchCourse} 							productsearchUserFunction=
+								{productsearchUserFunction} />
+
+
+			<main className="App-main">
+
+        {/* showCourse Component */}
+				<ShowCourseComponent
+					products={products}
+					filterCourseFunction={filterCourseFunction}
+					addCourseToCartFunction={addCourseToCartFunction}
+				/>
+
+{/* userCartComponent */}
+				<UserCartComponent
+					cartproducts={cartproducts}
+					deleteCourseFromCartFunction={deleteCourseFromCartFunction}
+					totalAmountCalculationFunction={
+						totalAmountCalculationFunction
+					}
+					setCartproducts={setCartproducts}
+				/>
+			</main>
+		</div>
+	);}
+
+export default App;
+	const [searchCourse, setSearchCourse] = useState('');
+
+	const addCourseToCartFunction = (course) => {
+		const alreadyproducts = cartproducts
+							.find(item => item.product.id === course.id);
+
